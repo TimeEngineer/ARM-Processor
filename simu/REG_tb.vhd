@@ -76,5 +76,9 @@ begin
 	wait for 1 us;
 	WE_tb <= '0';
 	wait for 1 us;
+	
+	Done <= True;
+  report "Test done" severity note;
+  wait;
 end process STIMULUS;
 end bench;

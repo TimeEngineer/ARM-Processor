@@ -12,6 +12,9 @@ architecture bench of ALU_tb is
   signal B_tb : std_logic_vector (31 downto 0);
   signal S_tb : std_logic_vector (31 downto 0);
   signal N_tb : std_logic;
+  signal Z_tb : std_logic;
+  signal C_tb : std_logic;
+  signal V_tb : std_logic;
   
   begin
   
@@ -20,7 +23,10 @@ architecture bench of ALU_tb is
     A => A_tb,
     B => B_tb,
     S => S_tb,
-    N => N_tb);
+    N => N_tb,
+    Z => Z_tb,
+    C => C_tb,
+    V => V_tb);
        
     
     stimulus : process begin

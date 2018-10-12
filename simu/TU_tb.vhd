@@ -16,6 +16,9 @@ architecture bench of TU_tb is
 	signal OP_tb	: std_logic_vector (1 downto 0) := "00";
 	signal S_tb	: std_logic_vector (31 downto 0);
 	signal N_tb	: std_logic;
+	signal Z_tb : std_logic;
+	signal C_tb : std_logic;
+	signal V_tb : std_logic;
 	signal Done 	: boolean := False;
 
 begin
@@ -29,7 +32,10 @@ UUT1 : entity work.tu(behav) port map(
 	WE => WE_tb,
 	OP => OP_tb,
 	S => S_tb,
-	N => N_tb);
+	N => N_tb,
+	Z => Z_tb,
+	C => C_tb,
+	V => V_tb);
 	
 -- Generate a clock
 clk_tb <= '0' when Done else not clk_tb after 20 ns;
@@ -42,151 +48,154 @@ begin
 	wait for 1 us;
 
 	W_tb <= X"00000001";
-	RW <= X"1";
-	WE <= '1'
+	RW_tb <= X"1";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"00000002";
-	RW <= X"2";
-	WE <= '1'
+	RW_tb <= X"2";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"00000003";
-	RW <= X"3";
-	WE <= '1'
+	RW_tb <= X"3";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"00000004";
-	RW <= X"3";
-	WE <= '1'
+	RW_tb <= X"3";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"00000005";
-	RW <= X"5";
-	WE <= '1'
+	RW_tb <= X"5";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"00000006";
-	RW <= X"6";
-	WE <= '1'
+	RW_tb <= X"6";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"00000007";
-	RW <= X"7";
-	WE <= '1'
+	RW_tb <= X"7";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"00000008";
-	RW <= X"8";
-	WE <= '1'
+	RW_tb <= X"8";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"00000009";
-	RW <= X"9";
-	WE <= '1'
+	RW_tb <= X"9";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"0000000A";
-	RW <= X"A";
-	WE <= '1'
+	RW_tb <= X"A";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"0000000B";
-	RW <= X"B";
-	WE <= '1'
+	RW_tb <= X"B";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"0000000C";
-	RW <= X"C";
-	WE <= '1'
+	RW_tb <= X"C";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"0000000D";
-	RW <= X"D";
-	WE <= '1'
+	RW_tb <= X"D";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"0000000E";
-	RW <= X"E";
-	WE <= '1'
+	RW_tb <= X"E";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	W_tb <= X"0000000F";
-	RW <= X"F";
-	WE <= '1'
+	RW_tb <= X"F";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	RA_tb <= X"F";
-	OP <= "01";
-	W_tb <= S;
-	RW <= X"1";
-	WE <= '1'
+	OP_tb <= "01";
+	W_tb <= S_tb;
+	RW_tb <= X"1";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	RB_tb <= X"1";
-	OP_TB <= "00";
-	W_tb <= S;
-	RW <= X"1";
-	WE <= '1'
+	OP_tb <= "00";
+	W_tb <= S_tb;
+	RW_tb <= X"1";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
-	RW <= X"2";
-	WE <= '1'
+	RW_tb <= X"2";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	RA_tb <= X"1";
-	RB_tb <= X"15";
-	OP_TB <= "10";
-	W_tb <= S;
-	RW <= X"3";
-	WE <= '1'
+	RB_tb <= X"F";
+	OP_tB <= "10";
+	W_tb <= S_tb;
+	RW_tb <= X"3";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
 	RA_tb <= X"7";
-	W_tb <= S;
-	RW <= X"5";
-	WE <= '1'
+	W_tb <= S_tb;
+	RW_tb <= X"5";
+	WE_tb <= '1';
 	wait for 100 ns;
-	WE <= '0';
+	WE_tb <= '0';
 	wait for 100 ns;
 
+  Done <= True;
+  report "Test done" severity note;
+  wait;
 end process STIMULUS;
 end bench;
