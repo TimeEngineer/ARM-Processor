@@ -22,10 +22,71 @@ begin
  process (OP, A, B) begin 
   case OP is
     when "00" => S_sig <= std_logic_vector(signed(A)+signed(B));
+      if A(31) = '0' then
+        if B(31) = '0' then
+          if S_sig(31) = '0' then
+            C <= '0';
+            V <= '0';
+          else
+            C <= '1';
+            V <= '0';
+          end if;
+        else
+          C <= '0';
+          V <= '0';
+        end if;
+      else
+        if B(31) = '0' then
+          C <= '0';
+          V <= '0';
+        else
+          if S_sig(31) = '0' then
+            C <= '1';
+            V <= '1';
+          else
+            C <= '0';
+            V <= '0';
+          end if;
+        end if;
+      end if;
     when "01" => S_sig <= B;
     when "10" => S_sig <= std_logic_vector(signed(A)-signed(B));
+      if A(31) = '0' then
+        if B(31) = '0' then
+          C <= '0';
+          V <= '0';
+        else
+          if S_sig(31) = '0' then
+            C <= '0';
+            V <= '0';
+          else
+            C <= '1';
+            V <= '0';
+          end if;
+        end if;
+      else
+        if B(31) = '0' then
+          if S_sig(31) = '0' then
+            C <= '1';
+            V <= '1';
+          else
+            C <= '0';
+            V <= '0';
+          end if;
+        else
+          C <= '0';
+          V <= '0';
+        end if;
+      end if;
     when others => S_sig <= A;
   end case;
+  
+  if S_sig = X"00000000" then
+    Z <= '1';
+  else
+    Z <= '0';
+  end if;
+  
 end process;
   S <= S_sig;
   N <= S_sig(31);                             -- bit 31 determines the sign

@@ -9,11 +9,9 @@ entity EXT is generic (N : integer := 32); port (
 end entity;
 
 architecture behav of EXT is
-	signal S_sig : std_logic_vector (31 downto 0);
 begin
 process(E) begin
-	S_sig(N-2 downto 0) <= E(N-2 downto 0);
-	S_sig(31) <= E(N-1);
+	S(N-2 downto 0) <= E(N-2 downto 0);
+	S(31) <= E(N-1);
 end process;
-S <= S_sig;
 end behav;

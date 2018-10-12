@@ -9,9 +9,9 @@ entity REG is port (
 	RA : in std_logic_vector (3 downto 0); 		-- Bus address A
 	RB : in std_logic_vector (3 downto 0); 		-- Bus address B
 	RW : in std_logic_vector (3 downto 0); 		-- Bus address write
-	WE : in std_logic; 				-- Write enable
+	WE : in std_logic; 				                  -- Write enable
 	A : out std_logic_vector (31 downto 0); 	-- Bus A
-	B : out std_logic_vector (31 downto 0)); 	-- Bus B
+	B : out std_logic_vector (31 downto 0)); -- Bus B
 end entity;
 
 architecture behav of REG is

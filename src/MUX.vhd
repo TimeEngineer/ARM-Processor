@@ -13,20 +13,14 @@ end entity;
 
 
 architecture behav of MUX is
-  
-  signal S_sig : std_logic_vector (N-1 downto 0);
-  
-  begin
+begin
     
   process(A, B, COM) begin
     
     case COM is
-      
-    when '0' => S_sig <= A;
-    when others => S_sig <= B;
+      when '0' => S <= A;
+      when others => S <= B;
     end case;
-    
-    S <= S_sig;
     
   end process;
 end behav;
