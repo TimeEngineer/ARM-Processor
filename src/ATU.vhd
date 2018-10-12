@@ -53,20 +53,19 @@ component ALU port(
   V : out std_logic);
 end component;
 
-component MUX port(
+component MUX generic (N : integer := 32); port(
   A : in std_logic_vector (N-1 downto 0);
   B : in std_logic_vector (N-1 downto 0);
   COM : in std_logic;
   S : out std_logic_vector (N-1 downto 0));
 end component;
 
-component EXT port(
+component EXT generic (N : integer := 8); port(
   E : in std_logic_vector (N-1 downto 0);
 	S : out std_logic_vector (31 downto 0));
 end component;
 
 component DataMem port(
-  rst : in std_logic;
 	clk : in std_logic;
 	DataIn : in std_logic_vector (31 downto 0);
 	Addr : in std_logic_vector (5 downto 0);
@@ -78,7 +77,7 @@ begin
 C0 : REG 	port map(
   rst => rst,
 	clk => clk,
-	W => W,
+	W => MuxOut1,
 	RA => RA,
 	RB => RB,
 	RW => RW,
@@ -89,20 +88,28 @@ C1 : ALU 	port map(
   OP => OP,
   A => A_sig,
   B => MuxOut0,
-  S => S,
+  S => ALUout,
   N => N,
   Z => Z,
   C => C,
   V => V);
-C2 : MUX port map(
+C2 : MUX generic map(32) port map(
   A => B_sig, 
   B => ImmOut,
   COM => COM0,
   S => MuxOut0);
-C3 : MUX port map(
-  )
-C4 : EXT port map(
-  )
+C3 : MUX generic map(32) port map(
+  A => ALUout,
+  B => DataOut,
+  COM => COM1,
+  S => MuxOut1);
+C4 : EXT generic map(8) port map(
+  E => Imm,
+  S => ImmOut);
 C5 : DataMem port map(
-  )
+	clk => clk,
+	DataIn => B_sig,
+	Addr => ALUout (5 downto 0),
+	WE => WrEn,
+	DataOut => DataOut);
 end behav;
