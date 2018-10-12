@@ -1,4 +1,3 @@
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -12,6 +11,6 @@ architecture behav of EXT is
 begin
 process(E) begin
 	S(N-2 downto 0) <= E(N-2 downto 0);
-	S(31) <= E(N-1);
+	S(31 downto N-1) <= (others => E(N-1));
 end process;
 end behav;

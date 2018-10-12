@@ -32,7 +32,7 @@ architecture behav of REG is
 	signal tab_reg : table := init_reg;
 
 begin
-process(clk, W, RW, WE) begin
+process(clk, W, RW, WE, RA, RB, rst) begin
 	
 	if rst = '1' then
 		tab_reg <= init_reg;
