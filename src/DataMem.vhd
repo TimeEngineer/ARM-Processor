@@ -19,7 +19,7 @@ architecture behav of DataMem is
 	-- Function init
 	function init_mem return table is variable result : table;
 	begin
-		for i in 15 downto 0 loop
+		for i in 63 downto 0 loop
 			result(i) := (others => '0');
 		end loop;
 		return result;
