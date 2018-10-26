@@ -3,7 +3,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity DataMem is port (
-	rst : in std_logic;
 	clk : in std_logic;
 	DataIn : in std_logic_vector (31 downto 0);
 	Addr : in std_logic_vector (5 downto 0);
@@ -19,7 +18,7 @@ architecture behav of DataMem is
 	-- Function init
 	function init_mem return table is variable result : table;
 	begin
-		for i in 15 downto 0 loop
+		for i in 63 downto 0 loop
 			result(i) := (others => '0');
 		end loop;
 		return result;
@@ -29,11 +28,8 @@ architecture behav of DataMem is
 	signal tab_mem : table := init_mem;
 
 begin
-process(clk, DataIn, Addr, We, rst) begin
+process(clk, DataIn, Addr, We) begin
 	
-	if rst = '1' then
-		tab_mem <= init_mem;
-	end if;
 	if rising_edge(clk) and WE = '1' then
 		tab_mem(to_integer(unsigned(Addr))) <= DataIn;
 	end if;
