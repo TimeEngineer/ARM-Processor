@@ -15,9 +15,9 @@ architecture behav of IU is
   signal ExtOut : std_logic_vector (31 downto 0);
   signal PCout0 : std_logic_vector (31 downto 0);
   signal MuxOut : std_logic_vector (31 downto 0);
-  signal sig0 : unsigned (31 downto 0) := (others => '0');
-  signal sig1 : unsigned (31 downto 0) := (others => '0');
-  signal one : unsigned (31 downto 0) := X"00000001";
+  signal sig0 : signed (31 downto 0) := (others => '0');
+  signal sig1 : signed (31 downto 0) := (others => '0');
+  signal one : signed (31 downto 0) := X"00000001";
   
 component InstrMem port(
   rst : in std_logic;
@@ -54,6 +54,6 @@ C2 : MUX generic map(32) port map(
   B => std_logic_vector(sig1),
   COM => nPCsel,
   S => MuxOut);
-C3 : sig0 <= unsigned(PCout0) + one;
-C4 : sig1 <= unsigned(ExtOut) + sig0;
+C3 : sig0 <= signed(PCout0) + one;
+C4 : sig1 <= signed(ExtOut) + sig0;
 end behav;
