@@ -1,0 +1,77 @@
+# Loading project MIPS
+# Compile of ALU.vhd was successful.
+# Compile of ATU.vhd was successful.
+# Compile of CU.vhd was successful.
+# Compile of DataMem.vhd was successful.
+# Compile of EXT.vhd was successful.
+# Compile of ID.vhd was successful.
+# Compile of InstrMem.vhd was successful.
+# Compile of IU.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of REG.vhd was successful.
+# Compile of TU.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+# Compile of TU.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of ATU.vhd was successful.
+# Compile of CU.vhd was successful.
+# Compile of DataMem.vhd was successful.
+# Compile of EXT.vhd was successful.
+# Compile of ID.vhd was successful.
+# Compile of InstrMem.vhd was successful.
+# Compile of IU.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of REG.vhd was successful.
+# Compile of TU.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+# Compile of CU.vhd was successful.
+# Compile of TU.vhd was successful.
+# Compile of ID.vhd was successful.
+# Compile of DataMem.vhd was successful.
+# Compile of REG.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of IU.vhd was successful.
+# Compile of ATU.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of InstrMem.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of ATU.vhd was successful.
+# Compile of CU.vhd was successful.
+# Compile of DataMem.vhd was successful.
+# Compile of EXT.vhd was successful.
+# Compile of ID.vhd was successful.
+# Compile of InstrMem.vhd was successful.
+# Compile of IU.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of REG.vhd was successful.
+# Compile of TU.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+# Compile of ALU.vhd was successful.
+# Compile of ATU.vhd was successful.
+# Compile of CU.vhd was successful.
+# Compile of DataMem.vhd was successful.
+# Compile of EXT.vhd was successful.
+# Compile of ID.vhd was successful.
+# Compile of InstrMem.vhd was successful.
+# Compile of IU.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of REG.vhd was successful.
+# Compile of TU.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+# Compile of ALU.vhd was successful.
+# Compile of PSR.vhd was successful.
+# Compile of PSR.vhd was successful.
+# Compile of CU.vhd failed with 1 errors.
+# Compile of MUX.vhd was successful.
+# Compile of CU.vhd failed with 7 errors.
+# Compile of CU.vhd was successful.
+# Compile of CU.vhd was successful.
+# Compile of CU.vhd was successful.
+# Compile of CU.vhd was successful.
+# Compile of Main.vhd failed with 1 errors.
+# Compile of Main.vhd failed with 1 errors.
+# Compile of Main.vhd failed with 10 errors.
+# Compile of Main.vhd failed with 4 errors.
+# Compile of Main.vhd failed with 2 errors.
+# Compile of Main.vhd failed with 2 errors.
+# Compile of Main.vhd was successful.

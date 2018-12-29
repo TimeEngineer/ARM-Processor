@@ -2,6 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- Banc de Registres
 entity REG is port (
 	rst : in std_logic;
 	clk : in std_logic;
