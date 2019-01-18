@@ -4,15 +4,15 @@ use ieee.numeric_std.all;
 
 -- Banc de Registres
 entity REG is port (
-	rst : in std_logic;
-	clk : in std_logic;
-	W : in std_logic_vector (31 downto 0); 		-- Bus write
-	RA : in std_logic_vector (3 downto 0); 		-- Bus address A
-	RB : in std_logic_vector (3 downto 0); 		-- Bus address B
-	RW : in std_logic_vector (3 downto 0); 		-- Bus address write
-	WE : in std_logic; 				                  -- Write enable
-	A : out std_logic_vector (31 downto 0); 	-- Bus A
-	B : out std_logic_vector (31 downto 0)); -- Bus B
+	rst	: in std_logic;							-- Reset
+	clk	: in std_logic;							-- Clock
+	W	: in std_logic_vector (31 downto 0); 	-- Bus write
+	RA	: in std_logic_vector (3 downto 0); 	-- Bus address A
+	RB	: in std_logic_vector (3 downto 0); 	-- Bus address B
+	RW	: in std_logic_vector (3 downto 0); 	-- Bus address write
+	WE	: in std_logic; 						-- Write enable
+	A	: out std_logic_vector (31 downto 0); 	-- Bus A
+	B	: out std_logic_vector (31 downto 0)); 	-- Bus B
 end entity;
 
 architecture behav of REG is

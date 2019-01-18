@@ -3,29 +3,29 @@ use ieee.std_logic_1164.all;
 
 -- Decodeur d'instructions
 entity ID is port (
-	instruction : in std_logic_vector (31 downto 0);
-	PSR : in std_logic_vector (31 downto 0);
-	nPCSel : out std_logic;
-	RegWr : out std_logic;
-	ALUSrc : out std_logic;
-	ALUCtr : out std_logic_vector (1 downto 0);
-	PSREn : out std_logic;
-	MemWr : out std_logic;
-	WrSrc : out std_logic;
-	RegSel : out std_logic;
-	Rn : out std_logic_vector (3 downto 0);
-	Rd : out std_logic_vector (3 downto 0);
-	Rm : out std_logic_vector (3 downto 0);
-	Imm : out std_logic_vector (7 downto 0);
-	Offset : out std_logic_vector (23 downto 0));
+	instruction		: in std_logic_vector (31 downto 0);		-- 32 bits instruction
+	PSR				: in std_logic_vector (31 downto 0);		-- Load command
+	nPCSel			: out std_logic;							-- PC select
+	RegWr			: out std_logic;							-- Register write enable
+	ALUSrc			: out std_logic;							-- ALU source
+	ALUCtr			: out std_logic_vector (1 downto 0);		-- ALU control
+	PSREn			: out std_logic;							-- PSR enable
+	MemWr			: out std_logic;							-- Memory write enable
+	WrSrc			: out std_logic;							-- Write source
+	RegSel			: out std_logic;							-- Register select
+	Rn				: out std_logic_vector (3 downto 0);		-- Bus address N
+	Rd				: out std_logic_vector (3 downto 0);		-- Bus address D
+	Rm				: out std_logic_vector (3 downto 0);		-- Bus address M
+	Imm				: out std_logic_vector (7 downto 0);		-- Immediate
+	Offset			: out std_logic_vector (23 downto 0));		-- Offset
 end entity; 
 
 architecture behav of ID is
-  
+
 	type enum_instruction is (MOV, ADDi, ADDr, CMP, LDR, STR, BAL, BLT);
-  
+
 	signal instr_courante : enum_instruction;
-  
+
 begin
 process(instruction) begin
 	case instruction(31 downto 0) is
@@ -40,9 +40,9 @@ process(instruction) begin
 		when others => instr_courante <= MOV;
 		end case;
 end process;
-  
+
 process(instruction) begin
-    
+
 	case instr_courante is
 		when MOV =>
 			nPCSel <= '0';
@@ -55,7 +55,7 @@ process(instruction) begin
 			RegSel <= '0';
 			Rd <= instruction(15 downto 12);
 			Imm <= instruction(7 downto 0);
-        
+
 		when ADDi =>
 			nPCSel <= '0';
 			RegWr <= '1';
@@ -68,7 +68,7 @@ process(instruction) begin
 			Rn <= instruction(19 downto 16);
 			Rd <= instruction(15 downto 12);
 			Imm <= instruction(7 downto 0);
-      
+
 		when ADDr =>
 			nPCSel <= '0';
 			RegWr <= '1';
@@ -93,7 +93,7 @@ process(instruction) begin
 			RegSel <= '0';
 			Rn <= instruction(19 downto 16);
 			Imm <= instruction(7 downto 0);
-      
+
 		when LDR =>
 			nPCSel <= '0';
 			RegWr <= '1';
@@ -106,7 +106,7 @@ process(instruction) begin
 			Rn <= instruction(19 downto 16);
 			Rd <= instruction(15 downto 12);
 			Imm <= instruction(7 downto 0);
-        
+
 		when STR =>
 			nPCSel <= '0';
 			RegWr <= '0';

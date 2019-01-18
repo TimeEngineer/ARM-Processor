@@ -4,8 +4,8 @@ use ieee.numeric_std.all;
 
 -- Processeur MIPS
 entity Main is port (
-	rst 					: in std_logic;
-	clk 					: in std_logic);
+	rst						: in std_logic;							-- Reset
+	clk						: in std_logic);						-- Clock
 end entity Main;
 
 architecture behav of Main is
@@ -27,57 +27,57 @@ architecture behav of Main is
 	signal buf0				: std_logic;
 	signal buf1				: std_logic;
 	signal buf2				: std_logic;
-  
+
 component IU port(
-	rst 					: in std_logic;
-	clk 					: in std_logic;
-	Offset 					: in std_logic_vector (23 downto 0);
-	nPCsel 					: in std_logic;
-	Instruction 			: out std_logic_vector (31 downto 0));
+	rst						: in std_logic;							-- Reset
+	clk						: in std_logic;							-- Clock
+	Offset					: in std_logic_vector (23 downto 0);	-- Offset
+	nPCsel					: in std_logic;							-- PC select
+	Instruction				: out std_logic_vector (31 downto 0));	-- 32 bits instruction
 end component;
 
 component ATU port(
-	rst 					: in std_logic;
-	clk						: in std_logic;
-	RA 						: in std_logic_vector (3 downto 0);			-- Bus address A
-	RB						: in std_logic_vector (3 downto 0);			-- Bus address B
-	RW 						: in std_logic_vector (3 downto 0);			-- Bus address write
-	WE 						: in std_logic;								-- Write enable
-	OP 						: in std_logic_vector (1 downto 0);
-	Imm						: in std_logic_vector (7 downto 0);
-	WrEn 					: in std_logic;
-	COM0 					: in std_logic;
-	COM1 					: in std_logic;
-	N						: out std_logic;
-	Z 						: out std_logic;
-	C 						: out std_logic;
-	V 						: out std_logic);
+	rst						: in std_logic;							-- Reset
+	clk						: in std_logic;							-- Clock
+	RA						: in std_logic_vector (3 downto 0);		-- Bus address A
+	RB						: in std_logic_vector (3 downto 0);		-- Bus address B
+	RW						: in std_logic_vector (3 downto 0);		-- Bus address write
+	WE						: in std_logic;							-- Write enable
+	OP						: in std_logic_vector (1 downto 0);		-- Command signal
+	Imm						: in std_logic_vector (7 downto 0);		-- Immediate
+	WrEn					: in std_logic;							-- Write enable
+	COM0					: in std_logic;							-- Select command mux 0
+	COM1					: in std_logic;							-- Select command mux 1
+	N						: out std_logic;						-- Output sign, 1 for strictly negative value, 0 for positive
+	Z						: out std_logic;						-- 1 if result is zero/null
+	C						: out std_logic;						-- 1 if there is a carry
+	V						: out std_logic);						-- 1 if there is an overflow
 end component;
 
 component CU port(
-	rst 					: in std_logic;
-	clk 					: in std_logic;
-	dataIn 					: in std_logic_vector (31 downto 0);
-	instruction 			: in std_logic_vector (31 downto 0);
-	nPCSel 					: out std_logic;
-	RegWr 					: out std_logic;
-	ALUSrc 					: out std_logic;
-	ALUCtr 					: out std_logic_vector (1 downto 0);
-	MemWr 					: out std_logic;
-	WrSrc 					: out std_logic;
-	RegSel 					: out std_logic;
-	Rn 						: out std_logic_vector (3 downto 0);
-	Rd 						: out std_logic_vector (3 downto 0);
-	Rm 						: out std_logic_vector (3 downto 0);
-	Imm 					: out std_logic_vector (7 downto 0);
-	Offset 					: out std_logic_vector (23 downto 0));
+	rst						: in std_logic;							-- Reset
+	clk						: in std_logic;							-- Clock
+	dataIn					: in std_logic_vector (31 downto 0);	-- 32 bits input
+	instruction				: in std_logic_vector (31 downto 0);	-- 32 bits instruction
+	nPCSel					: out std_logic;						-- PC select
+	RegWr					: out std_logic;						-- Register write enable
+	ALUSrc					: out std_logic;						-- ALU source
+	ALUCtr					: out std_logic_vector (1 downto 0);	-- ALU control
+	MemWr					: out std_logic;						-- Memory write enable
+	WrSrc					: out std_logic;						-- Write source
+	RegSel					: out std_logic;						-- Register select
+	Rn						: out std_logic_vector (3 downto 0);	-- Bus address N
+	Rd						: out std_logic_vector (3 downto 0);	-- Bus address D
+	Rm						: out std_logic_vector (3 downto 0);	-- Bus address M
+	Imm						: out std_logic_vector (7 downto 0);	-- Immediate
+	Offset					: out std_logic_vector (23 downto 0));	-- Offset
 end component;
 
 component MUX generic (N : integer := 4); port(
-	A : in std_logic_vector (N-1 downto 0);
-	B : in std_logic_vector (N-1 downto 0);
-	COM : in std_logic;
-	S : out std_logic_vector (N-1 downto 0));
+	A						: in std_logic_vector (N-1 downto 0);	-- N bits input
+	B						: in std_logic_vector (N-1 downto 0);	-- N bits input
+	COM						: in std_logic;							-- Select command
+	S						: out std_logic_vector (N-1 downto 0));	-- N bits output
 end component;
 
 begin

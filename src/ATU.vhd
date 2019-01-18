@@ -4,76 +4,76 @@ use ieee.numeric_std.all;
 
 -- Assemblage Unite de Traitement
 entity ATU is port (
-	rst : in std_logic;
-	clk	: in std_logic;
-	RA : in std_logic_vector (3 downto 0);			-- Bus address A
-	RB	: in std_logic_vector (3 downto 0);			-- Bus address B
-	RW : in std_logic_vector (3 downto 0);			-- Bus address write
-	WE : in std_logic;								-- Write enable
-	OP : in std_logic_vector (1 downto 0);
-	Imm : in std_logic_vector (7 downto 0);
-	WrEn : in std_logic;
-	COM0 : in std_logic;
-	COM1 : in std_logic;
-	N	: out std_logic;
-	Z : out std_logic;
-	C : out std_logic;
-	V : out std_logic);
+	rst		: in std_logic;									-- Reset
+	clk		: in std_logic;									-- Clock
+	RA		: in std_logic_vector (3 downto 0);				-- Bus address A
+	RB		: in std_logic_vector (3 downto 0);				-- Bus address B
+	RW		: in std_logic_vector (3 downto 0);				-- Bus address write
+	WE		: in std_logic;									-- Write enable
+	OP		: in std_logic_vector (1 downto 0);				-- Command signal
+	Imm		: in std_logic_vector (7 downto 0);				-- immediate
+	WrEn	: in std_logic;									-- Write enable
+	COM0	: in std_logic;									-- Select command mux 0
+	COM1	: in std_logic;									-- Select command mux 1
+	N		: out std_logic;								-- Output sign, 1 for strictly negative value, 0 for positive
+	Z		: out std_logic;								-- 1 if result is zero/null
+	C		: out std_logic;								-- 1 if there is a carry
+	V		: out std_logic);								-- 1 if there is an overflow
 end entity ATU;
 
 architecture behav of ATU is
 
-	signal A_sig : std_logic_vector (31 downto 0);
-	signal B_sig : std_logic_vector (31 downto 0);
-	signal ALUout : std_logic_vector (31 downto 0);
-	signal DataOut : std_logic_vector (31 downto 0);
-	signal ImmOut : std_logic_vector (31 downto 0);
-	signal MuxOut0 : std_logic_vector (31 downto 0);
-	signal MuxOut1 : std_logic_vector (31 downto 0);
-  
+	signal A_sig	: std_logic_vector (31 downto 0);
+	signal B_sig	: std_logic_vector (31 downto 0);
+	signal ALUout	: std_logic_vector (31 downto 0);
+	signal DataOut	: std_logic_vector (31 downto 0);
+	signal ImmOut	: std_logic_vector (31 downto 0);
+	signal MuxOut0	: std_logic_vector (31 downto 0);
+	signal MuxOut1	: std_logic_vector (31 downto 0);
+
 component REG port(
-	rst : in std_logic;
-	clk : in std_logic;
-	W : in std_logic_vector (31 downto 0);			-- Bus write
-	RA : in std_logic_vector (3 downto 0);			-- Bus address A
-	RB : in std_logic_vector (3 downto 0);			-- Bus address B
-	RW : in std_logic_vector (3 downto 0);			-- Bus address write
-	WE : in std_logic;								-- Write enable
-	A : out std_logic_vector (31 downto 0);			-- Bus A
-	B : out std_logic_vector (31 downto 0));		-- Bus B
+	rst				: in std_logic;
+	clk				: in std_logic;
+	W				: in std_logic_vector (31 downto 0);	-- Bus write
+	RA				: in std_logic_vector (3 downto 0);		-- Bus address A
+	RB				: in std_logic_vector (3 downto 0);		-- Bus address B
+	RW				: in std_logic_vector (3 downto 0);		-- Bus address write
+	WE				: in std_logic;							-- Write enable
+	A				: out std_logic_vector (31 downto 0);	-- Bus A
+	B				: out std_logic_vector (31 downto 0));	-- Bus B
 end component;
 
 component ALU port(
-	OP : in std_logic_vector (1 downto 0);			-- Command signal
-	A :  in std_logic_vector (31 downto 0);			-- 32 bits input
-	B : in std_logic_vector (31 downto 0);			-- 32 bits input
-	S : out std_logic_vector (31 downto 0);			-- 32 bits output
-	N : out std_logic;								-- Output sign, 1 for strictly negative value, 0 for positive
-	Z : out std_logic;								-- 1 if result is zero/null
-	C : out std_logic;								-- 1 if there is a carry
-	V : out std_logic);
+	OP				: in std_logic_vector (1 downto 0);		-- Command signal
+	A				:  in std_logic_vector (31 downto 0);	-- 32 bits input
+	B				: in std_logic_vector (31 downto 0);	-- 32 bits input
+	S				: out std_logic_vector (31 downto 0);	-- 32 bits output
+	N				: out std_logic;						-- Output sign, 1 for strictly negative value, 0 for positive
+	Z				: out std_logic;						-- 1 if result is zero/null
+	C				: out std_logic;						-- 1 if there is a carry
+	V				: out std_logic);						-- 1 if there is an overflow
 end component;
 
 component MUX generic (N : integer := 32); port(
-	A : in std_logic_vector (N-1 downto 0);
-	B : in std_logic_vector (N-1 downto 0);
-	COM : in std_logic;
-	S : out std_logic_vector (N-1 downto 0));
+	A				: in std_logic_vector (N-1 downto 0);	-- N bits input
+	B				: in std_logic_vector (N-1 downto 0);	-- N bits input
+	COM				: in std_logic;							-- Select command
+	S				: out std_logic_vector (N-1 downto 0));	-- N bits output
 end component;
 
 component EXT generic (N : integer := 8); port(
-	E : in std_logic_vector (N-1 downto 0);
-	S : out std_logic_vector (31 downto 0));
+	E				: in std_logic_vector (N-1 downto 0);	-- N bits input
+	S				: out std_logic_vector (31 downto 0));	-- 32 bits output
 end component;
 
 component DataMem port(
-	clk : in std_logic;
-	DataIn : in std_logic_vector (31 downto 0);
-	Addr : in std_logic_vector (5 downto 0);
-	WE : in std_logic;
-	DataOut : out std_logic_vector (31 downto 0));
+	clk				: in std_logic;							-- Clock
+	DataIn			: in std_logic_vector (31 downto 0);	-- 32 bits input
+	Addr			: in std_logic_vector (5 downto 0);		-- 6 bits address
+	WE				: in std_logic;							-- Write enable
+	DataOut			: out std_logic_vector (31 downto 0));	-- 32 bits output
 end component;
-  
+
 begin
 C0 : REG 	port map(
 	rst => rst,

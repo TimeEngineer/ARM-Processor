@@ -4,11 +4,11 @@ use ieee.numeric_std.all;
 
 -- Memoire de donnees
 entity DataMem is port (
-	clk : in std_logic;
-	DataIn : in std_logic_vector (31 downto 0);
-	Addr : in std_logic_vector (5 downto 0);
-	WE : in std_logic;
-	DataOut : out std_logic_vector (31 downto 0));
+	clk		: in std_logic;							-- Clock
+	DataIn	: in std_logic_vector (31 downto 0);	-- 32 bits input
+	Addr	: in std_logic_vector (5 downto 0);		-- 6 bits address
+	WE		: in std_logic;							-- Write enable
+	DataOut	: out std_logic_vector (31 downto 0));	-- 32 bits output
 end entity;
 
 architecture behav of DataMem is
