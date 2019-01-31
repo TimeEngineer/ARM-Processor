@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use IEEE.NUMERIC_STD.ALL; 
 
 -- Decodeur d'instructions
 entity ID is port (
@@ -27,21 +28,19 @@ architecture behav of ID is
 	signal instr_courante : enum_instruction;
 
 begin
-process(instruction) begin
-	case instruction(31 downto 0) is
-		when "1110001110100000XXXX000XXXXXXXXX" => instr_courante <= MOV;
-		when "111000101000XXXXXXXX0000XXXXXXXX" => instr_courante <= ADDi;
-		when "111000001000XXXXXXXX00000000XXXX" => instr_courante <= ADDr;
-		when "111000110101XXXX00000000XXXXXXXX" => instr_courante <= CMP;
-		when "111001100001XXXXXXXXXXXXXXXXXXXX" => instr_courante <= LDR;
-		when "111001100000XXXXXXXXXXXXXXXXXXXX" => instr_courante <= STR;
-		when "11101010XXXXXXXXXXXXXXXXXXXXXXXX" => instr_courante <= BAL;
-		when "10111010XXXXXXXXXXXXXXXXXXXXXXXX" => instr_courante <= BLT;
-		when others => instr_courante <= MOV;
-		end case;
+process(instruction, PSR) begin
+	if std_match(instruction, "1110001110100000----000---------") then instr_courante <= MOV;
+	elsif std_match(instruction, "111000101000--------0000--------") then instr_courante <= ADDi;
+	elsif std_match(instruction, "111000001000--------00000000----") then instr_courante <= ADDr;
+	elsif std_match(instruction, "111000110101----00000000--------") then instr_courante <= CMP;
+	elsif std_match(instruction, "111001100001--------------------") then instr_courante <= LDR;
+	elsif std_match(instruction, "111001100000--------------------") then instr_courante <= STR;
+	elsif std_match(instruction, "11101010------------------------") then instr_courante <= BAL;
+	elsif std_match(instruction, "10111010------------------------") then instr_courante <= BLT;
+	end if;
 end process;
 
-process(instruction) begin
+process(instruction, PSR) begin
 
 	case instr_courante is
 		when MOV =>

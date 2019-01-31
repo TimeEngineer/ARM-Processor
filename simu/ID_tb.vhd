@@ -44,22 +44,23 @@ begin
 	Offset => Offset_tb);
 
 stimulus: process begin
-	wait for 10 ns;
-	instruction_tb <= "1110001110100000XXXX000XXXXXXXXX";
+	instruction_tb <= x"E3A01020";
 	wait for 50 ns;
-	instruction_tb <= "111000101000XXXXXXXX0000XXXXXXXX";
+	instruction_tb <= x"E3A02000";
 	wait for 50 ns;
-	instruction_tb <= "111000001000XXXXXXXX00000000XXXX";
+	instruction_tb <= x"E6110000";
 	wait for 50 ns;
-	instruction_tb <= "111000110101XXXX00000000XXXXXXXX";
+	instruction_tb <= x"E0822000";
 	wait for 50 ns;
-	instruction_tb <= "111001100001XXXXXXXXXXXXXXXXXXXX";
+	instruction_tb <= x"E2811001";
 	wait for 50 ns;
-	instruction_tb <= "111001100000XXXXXXXXXXXXXXXXXXXX";
+	instruction_tb <= x"E351002A";
 	wait for 50 ns;
-	instruction_tb <= "11101010XXXXXXXXXXXXXXXXXXXXXXXX";
+	instruction_tb <= x"BAFFFFFB";
 	wait for 50 ns;
-	instruction_tb <= "10111010XXXXXXXXXXXXXXXXXXXXXXXX";
+	instruction_tb <= x"E6012000";
+	wait for 50 ns;
+	instruction_tb <= x"EAFFFFF7";
 	wait  for 40 ns;
 
 	end process stimulus;
