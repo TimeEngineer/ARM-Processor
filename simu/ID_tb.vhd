@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 -- Decodeur d'instructions
 entity ID_tb is
@@ -44,11 +45,12 @@ begin
 	Offset => Offset_tb);
 
 stimulus: process begin
+	wait for 10 ns;
 	instruction_tb <= x"E3A01020";
 	wait for 50 ns;
 	instruction_tb <= x"E3A02000";
 	wait for 50 ns;
-	instruction_tb <= x"E6110000";
+	instruction_tb <= "11100110000100010000000000000000";
 	wait for 50 ns;
 	instruction_tb <= x"E0822000";
 	wait for 50 ns;
