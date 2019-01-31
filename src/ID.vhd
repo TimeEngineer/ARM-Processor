@@ -40,7 +40,7 @@ process(instruction, PSR) begin
 	end if;
 end process;
 
-process(instruction, PSR) begin
+process(instruction) begin
 
 	case instr_courante is
 		when MOV =>
