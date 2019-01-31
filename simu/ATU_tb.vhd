@@ -145,7 +145,7 @@ stimulus: process begin
 
 	COM1_tb <= '1';				-- lecture du du mot dataMem(0)=3
 
-	RW_tb <= X"3"; 				-- resultat dans reg(3)
+	RW_tb <= X"F"; 				-- resultat dans reg(15)
 	WE_tb <= '1';
 	wait for 50 ns;
 	WE_tb <= '0';
