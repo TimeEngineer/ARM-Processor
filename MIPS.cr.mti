@@ -64,14 +64,24 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity PSR
 -- Compiling architecture behav of PSR
 
+} {} {}} /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/Main_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/Main_tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Main_tb
+-- Compiling architecture bench of Main_tb
+-- Loading package NUMERIC_STD
+-- Loading entity Main
+
 } {} {}} /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
 -- Compiling entity ID_tb
 -- Compiling architecture bench of ID_tb
--- Loading package NUMERIC_STD
 -- Loading entity ID
 
 } {} {}} /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/CU.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/CU.vhd
@@ -118,6 +128,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity ALU
 -- Compiling architecture behav of ALU
+
+} {} {}} /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/PC.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/PC.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity PC
+-- Compiling architecture behav of PC
 
 } {} {}} /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016

@@ -28,7 +28,7 @@ architecture behav of ID is
 	signal instr_courante : enum_instruction;
 
 begin
-process(instruction, PSR) begin
+process(instruction) begin
 	if std_match(instruction, "1110001110100000----000---------") then instr_courante <= MOV;
 	elsif std_match(instruction, "111000101000--------0000--------") then instr_courante <= ADDi;
 	elsif std_match(instruction, "111000001000--------00000000----") then instr_courante <= ADDr;
@@ -58,7 +58,7 @@ process(instruction) begin
 		when ADDi =>
 			nPCSel <= '0';
 			RegWr <= '1';
-			ALUSrc <= '0';
+			ALUSrc <= '1';
 			ALUCtr <= "00";
 			PSREn <= '0';
 			MemWr <= '0';
@@ -131,7 +131,9 @@ process(instruction) begin
 			Offset <= instruction(23 downto 0);
 
 		when BLT =>
-			nPCSel <= '1';
+			if PSR(0) = '1' then nPCSel <= '1';
+			else nPCSel <= '0';
+			end if;
 			RegWr <= '0';
 			ALUSrc <= '0';
 			ALUCtr <= "00";
