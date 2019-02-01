@@ -22,12 +22,11 @@ clk_tb <= '0' when Done else not clk_tb after 20 ns;
 
 
 stimulus: process begin
-
-	wait for 1 ns;
-	rst_tb <= '1';
-	wait for 40 ns;
 	rst_tb <= '0';
-
+	wait for 20 ns;
+	rst_tb <= '1';
+	wait for 20 ns;
+	rst_tb <= '0';
 	wait for 1 us;
 
 end process stimulus;
