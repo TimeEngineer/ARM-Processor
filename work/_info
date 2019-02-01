@@ -340,7 +340,7 @@ R53
 R12
 R13
 Eid
-Z54 w1548980674
+Z54 w1548984340
 R2
 R3
 R4
@@ -349,13 +349,13 @@ Z55 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/ID.vhd
 Z56 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/ID.vhd
 l0
 L6
-VLjoFd6We2GPXY?LiW?0R@0
-!s100 W<^DB@Pk;1=Oij2QPN:UY0
+V:3_[FSA`lUce[`5dh?6NN0
+!s100 EMeG8lAD<oM<1l>C3]PWd2
 R7
 32
-Z57 !s110 1548980683
+Z57 !s110 1548984348
 !i10b 1
-Z58 !s108 1548980683.000000
+Z58 !s108 1548984348.000000
 Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/ID.vhd|
 Z60 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/ID.vhd|
 !i113 1
@@ -365,11 +365,11 @@ Abehav
 R2
 R3
 R4
-Z61 DEx4 work 2 id 0 22 LjoFd6We2GPXY?LiW?0R@0
-l30
+DEx4 work 2 id 0 22 :3_[FSA`lUce[`5dh?6NN0
+l44
 L24
-V6D]mZ7fn8]YfGNWZzo[:E2
-!s100 DA<@k8kJO1UYH1ZCV`kD@0
+V;;C5^bfTJRS_P=>?YVP]H3
+!s100 _g[loNCbzGML?eMP82N=80
 R7
 32
 R57
@@ -381,13 +381,13 @@ R60
 R12
 R13
 Eid_tb
-Z62 w1548971991
+Z61 w1548971991
 R2
 R3
 R4
 R0
-Z63 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd
-Z64 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd
+Z62 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd
+Z63 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd
 l0
 L6
 V;lXDDYRSJz@3VNO[_K@im2
@@ -397,13 +397,13 @@ R7
 R31
 !i10b 1
 R51
-Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd|
-Z66 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd|
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd|
+Z65 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/ID_tb.vhd|
 !i113 1
 R12
 R13
 Abench
-R61
+Z66 DEx4 work 2 id 0 22 LjoFd6We2GPXY?LiW?0R@0
 R2
 R3
 R4
@@ -417,13 +417,13 @@ R7
 R31
 !i10b 1
 R51
+R64
 R65
-R66
 !i113 1
 R12
 R13
 Einstrmem
-Z67 w1548979452
+Z67 w1548981127
 R2
 R3
 R4
@@ -436,9 +436,9 @@ VUAkc?GEKI`ZXiJLZ7>l4f1
 !s100 bb6C[O8=1MZ=Bh@3C0l`?2
 R7
 32
-Z70 !s110 1548980677
+Z70 !s110 1548981267
 !i10b 1
-Z71 !s108 1548980677.000000
+Z71 !s108 1548981267.000000
 Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/InstrMem.vhd|
 Z73 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/InstrMem.vhd|
 !i113 1
@@ -748,24 +748,24 @@ R106
 R12
 R13
 Ereg
-R1
+Z107 w1548981602
 R2
 R3
 R4
 R0
-Z107 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/REG.vhd
-Z108 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/REG.vhd
+Z108 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/REG.vhd
+Z109 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/REG.vhd
 l0
 L6
 VgTYbzPAgCMdSD]P2=2C=W1
 !s100 jE=V[_;9HZG4G[=WS[N;Z0
 R7
 32
-R18
+Z110 !s110 1548984185
 !i10b 1
-R19
-Z109 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/REG.vhd|
-Z110 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/REG.vhd|
+Z111 !s108 1548984185.000000
+Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/REG.vhd|
+Z113 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/REG.vhd|
 !i113 1
 R12
 R13
@@ -773,18 +773,18 @@ Abehav
 R2
 R3
 R4
-Z111 DEx4 work 3 reg 0 22 gTYbzPAgCMdSD]P2=2C=W1
+Z114 DEx4 work 3 reg 0 22 gTYbzPAgCMdSD]P2=2C=W1
 l35
 L18
 Vf;zz67ofb;ld1NIa:NUJ^3
 !s100 _nMK>;^>[YYZ2bUT:3PBM1
 R7
 32
-R18
-!i10b 1
-R19
-R109
 R110
+!i10b 1
+R111
+R112
+R113
 !i113 1
 R12
 R13
@@ -794,8 +794,8 @@ R2
 R3
 R4
 R0
-Z112 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/REG_tb.vhd
-Z113 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/REG_tb.vhd
+Z115 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/REG_tb.vhd
+Z116 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/REG_tb.vhd
 l0
 L5
 V1U=UP@@keVMH@8;gSK=Ez1
@@ -805,13 +805,13 @@ R7
 R31
 !i10b 1
 R51
-Z114 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/REG_tb.vhd|
-Z115 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/REG_tb.vhd|
+Z117 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/REG_tb.vhd|
+Z118 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/REG_tb.vhd|
 !i113 1
 R12
 R13
 Abench
-R111
+R114
 R2
 R3
 R4
@@ -825,8 +825,8 @@ R7
 R31
 !i10b 1
 R51
-R114
-R115
+R117
+R118
 !i113 1
 R12
 R13
@@ -836,8 +836,8 @@ R2
 R3
 R4
 R0
-Z116 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/TU.vhd
-Z117 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/TU.vhd
+Z119 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/TU.vhd
+Z120 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/TU.vhd
 l0
 L6
 Vkl3D9BX537R6ha:Hkdich1
@@ -847,8 +847,8 @@ R7
 R18
 !i10b 1
 R19
-Z118 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/TU.vhd|
-Z119 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/TU.vhd|
+Z121 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/TU.vhd|
+Z122 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/src/TU.vhd|
 !i113 1
 R12
 R13
@@ -856,7 +856,7 @@ Abehav
 R2
 R3
 R4
-Z120 DEx4 work 2 tu 0 22 kl3D9BX537R6ha:Hkdich1
+Z123 DEx4 work 2 tu 0 22 kl3D9BX537R6ha:Hkdich1
 l50
 L22
 Vh2:X1aRH4flV3ClIX;EA^3
@@ -866,8 +866,8 @@ R7
 R18
 !i10b 1
 R19
-R118
-R119
+R121
+R122
 !i113 1
 R12
 R13
@@ -877,8 +877,8 @@ R2
 R3
 R4
 R0
-Z121 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd
-Z122 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd
+Z124 8/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd
+Z125 F/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd
 l0
 L5
 Vd9jab4lfk2HIK?H`99E7l0
@@ -888,13 +888,13 @@ R7
 R31
 !i10b 1
 R51
-Z123 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd|
-Z124 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd|
+Z126 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd|
+Z127 !s107 /home/engineer/Bureau/EPU/VHDL/MIPS-Processor/simu/TU_tb.vhd|
 !i113 1
 R12
 R13
 Abench
-R120
+R123
 R2
 R3
 R4
@@ -908,8 +908,8 @@ R7
 R31
 !i10b 1
 R51
-R123
-R124
+R126
+R127
 !i113 1
 R12
 R13
